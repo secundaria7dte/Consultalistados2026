@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudiantes 2026 — ES N°7</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rojo: #C0282A;
+    --azul: #1A2F6E;
+    --azul-claro: #2A4AB5;
+    --fondo: #F4F1EC;
+    --blanco: #FFFFFF;
+    --gris: #8A8A8A;
+    --gris-claro: #E8E4DC;
+    --verde: #1A6E3C;
+    --amarillo: #F5A623;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--fondo);
+    min-height: 100vh;
+    color: var(--azul);
+  }
+
+  /* HEADER */
+  header {
+    background: var(--azul);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-text-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .logo-escuela {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+  }
+
+  .logo-nombre {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: white;
+  }
+
+  .logo-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .header-badge {
+    margin-left: auto;
+    background: var(--rojo);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .header-bg-text {
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 160px;
+    color: rgba(255,255,255,0.04);
+    letter-spacing: -4px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* STRIP */
+  .strip {
+    background: var(--rojo);
+    height: 4px;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  /* INSTRUCCIONES */
+  .instrucciones {
+    background: white;
+    border-left: 4px solid var(--azul-claro);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .instrucciones h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--azul-claro);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .instrucciones p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .instrucciones strong {
+    color: var(--azul);
+    font-weight: 600;
+  }
+
+  /* BUSCADOR */
+  .buscador-wrap {
+    margin-bottom: 36px;
+  }
+
+  .buscador-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gris);
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .buscador-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .dni-input {
+    flex: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 18px 24px;
+    border: 2px solid var(--gris-claro);
+    border-radius: 8px;
+    background: white;
+    color: var(--azul);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    letter-spacing: 4px;
+    -moz-appearance: textfield;
+  }
+
+  .dni-input::-webkit-outer-spin-button,
+  .dni-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  .dni-input::placeholder {
+    color: var(--gris-claro);
+    letter-spacing: 2px;
+    font-size: 22px;
+  }
+
+  .dni-input:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 4px rgba(42,74,181,0.12);
+  }
+
+  .btn-buscar {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    flex-shrink: 0;
+  }
+
+  .btn-buscar:hover { background: #A01E20; }
+  .btn-buscar:active { transform: scale(0.97); }
+
+  .btn-limpiar {
+    background: transparent;
+    color: var(--gris);
+    border: 2px solid var(--gris-claro);
+    border-radius: 8px;
+    padding: 18px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .btn-limpiar:hover { border-color: var(--gris); color: var(--azul); }
+
+  /* RESULTADO */
+  .resultado { display: none; }
+  .resultado.visible { display: block; animation: slideUp 0.3s ease; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Resultado ENCONTRADO */
+  .card-encontrado {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  .card-header-found {
+    background: var(--azul);
+    color: white;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .check-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .card-header-found h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+
+  .card-nombre {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .card-body {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .dato-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dato-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  .dato-valor {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  .turno-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .turno-TM { background: #EEF2FF; color: var(--azul-claro); }
+  .turno-TT { background: #FFF3E0; color: #B45309; }
+  .turno-TN { background: #1A1A2E; color: #A78BFA; }
+
+  /* Resultado NO ENCONTRADO */
+  .card-notfound {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  .card-header-notfound {
+    background: #FFF8E1;
+    border-bottom: 3px solid var(--amarillo);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .alert-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .card-header-notfound h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #92400E;
+    margin-bottom: 4px;
+  }
+
+  .card-header-notfound p {
+    font-size: 14px;
+    color: #78350F;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .card-notfound-body {
+    padding: 20px 28px;
+    background: #FFFDF5;
+  }
+
+  .horarios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .horario-bloque {
+    background: white;
+    border: 1px solid var(--gris-claro);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+
+  .horario-bloque strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--gris);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .horario-bloque span {
+    font-size: 14px;
+    color: var(--azul);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gris);
+    border-top: 1px solid var(--gris-claro);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { gap: 16px; }
+    .header-badge { font-size: 26px; padding: 6px 14px; }
+    .logo-nombre { font-size: 20px; }
+    .buscador-row { flex-wrap: wrap; }
+    .btn-buscar, .btn-limpiar { flex: 1; }
+    .card-body { grid-template-columns: 1fr; }
+    .horarios { grid-template-columns: 1fr !important; }
+    .dni-input { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <img src="data:image/png;base64,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" alt="Logo ES7" style="height:72px;width:auto;flex-shrink:0;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,0.3);" />
+    <div class="logo-text-stack">
+      <span class="logo-escuela">Escuela Secundaria N° 7</span>
+      <span class="logo-nombre">"Dr. Carlos L. Vergara"</span>
+      <span class="logo-sub">CUE 3000467 — Diamante, Entre Ríos</span>
+    </div>
+    <div class="header-badge">2026</div>
+  </div>
+  <div class="strip"></div>
+  <div class="header-bg-text">CLV</div>
+</header>
+
+<main>
+
+  <div class="instrucciones">
+    <h2>📋 ¿Cómo usar este buscador?</h2>
+    <p>
+      Ingresá el <strong>número de DNI</strong> del/la estudiante en el campo de búsqueda y presioná <strong>Buscar</strong> o la tecla <strong>Enter</strong>.<br>
+      El sistema mostrará su <strong>nombre completo, curso, preceptor/a y turno</strong> para el Ciclo Lectivo 2026.<br>
+      Si el DNI no figura en los listados, aparecerá un mensaje indicando que debe <strong>acercarse a la institución</strong>.
+    </p>
+  </div>
+
+  <div class="buscador-wrap">
+    <label class="buscador-label" for="dniInput">Ingresá el número de DNI</label>
+    <div class="buscador-row">
+      <input
+        type="number"
+        id="dniInput"
+        class="dni-input"
+        placeholder="Ej: 53475425"
+        maxlength="10"
+        autofocus
+      />
+      <button class="btn-buscar" onclick="buscar()">BUSCAR</button>
+      <button class="btn-limpiar" onclick="limpiar()">✕ Limpiar</button>
+    </div>
+  </div>
+
+  <div class="resultado" id="resultado"></div>
+
+</main>
+
+<footer>
+  Listado Provisorio 2026 · Uso interno institucional · Escuela Secundaria N° 7 "Dr. Carlos L. Vergara"
+</footer>
+
+<script>
+// ============================================================
+// BASE DE DATOS DE ESTUDIANTES
+// Formato: { dni: "XXXXXXXX", nombre: "Apellido, Nombre", curso: "1° A", turno: "TM", preceptor: "..." }
+// ============================================================
+const estudiantes = [
+
+  // ===== TURNO MAÑANA =====
+
+  // 1°A TM — Pezzali
+  {dni:"53253964",nombre:"Cantero Ciro Juan Martín",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53475425",nombre:"Castillo Renata",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"20537379090",nombre:"Colombo Gustavo Fabián",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27538383274",nombre:"Fernández Emma Jazmín",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52948714",nombre:"Grandolio Martínez Alexia Abigail",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"20538116050",nombre:"López Bautista",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"23540052824",nombre:"Martínez Maite",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52948083",nombre:"Poggi Tiago Exequiel",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27537379397",nombre:"Ríos Alma Martina",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"20538116271",nombre:"Rubio Santino Alexandro",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53478469",nombre:"Soria Estefano",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27537379375",nombre:"Suárez Génesis Abril",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54007702",nombre:"Correa Valentina",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53811636",nombre:"Farrher Joselin Camila",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27532213385",nombre:"Basilico Leiva Martina Belén",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27534753484",nombre:"Villar Melanie Anahí",curso:"1° A",turno:"TM",preceptor:"Francisco Pezzali"},
+
+  // 1°B TM — Pezzali
+  {dni:"53475468",nombre:"Cajal Mattia Leonel",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52056862",nombre:"Corominola Ríos Camilo",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54005269",nombre:"Alarcón Mateo Emir",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54005274",nombre:"Medina Zaira Ludmila",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52260290",nombre:"Pereyra Martínez Mía Madeleyne",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53737927",nombre:"Román Alejo Bautista",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53006128",nombre:"Sánchez Hanna Francesca",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53737916",nombre:"Soria Felipe Josué",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54007709",nombre:"Stieben Conde Dylan Catril",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54005296",nombre:"Zeballos Valentino Gabriel",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53811610",nombre:"Alem Stefano Benjamín",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53737945",nombre:"Ceballos Sofía Isabel",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53811611",nombre:"Santa María Alma Elizabeth",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53253965",nombre:"Zapata Orzusa Celene Jazmín",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"20540000199",nombre:"Zárate Joaquín",curso:"1° B",turno:"TM",preceptor:"Francisco Pezzali"},
+
+  // 1°C TM — Pezzali
+  {dni:"51422405",nombre:"Albornoz Tiara Michelle",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53626323",nombre:"Blasón Ángeles Luana",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53253956",nombre:"Cabrera Villar Mateo Elian",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52256529",nombre:"Díaz Camilo Juan",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53475423",nombre:"Duarte Mía Ludmila",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53811625",nombre:"Gómez Emiliano",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53476411",nombre:"Ibarra Dylan N.",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"54350628",nombre:"Martiquet Laura Magali",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53253980",nombre:"Méndez Alexis Rafael",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53008923",nombre:"Roja Luna Anahí",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53754200",nombre:"Viola Araceli",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53737935",nombre:"Correa Adriel Emiliano",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27532539604",nombre:"García Juanita",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"27534774007",nombre:"Muñoz Ariana Betsabé",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52732213",nombre:"Uccelli Jazmín Maitena",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"53110775",nombre:"Uhrig Vladimir",curso:"1° C",turno:"TM",preceptor:"Francisco Pezzali"},
+
+  // 1°F TM — Pezzali (reingresantes)
+  {dni:"51021156",nombre:"Ríos Santiago",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"51021167",nombre:"Borgeat Mara",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"51021184",nombre:"Espinosa Eliseo Hernán",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"51118848",nombre:"Bernachea Luana",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"51118879",nombre:"Gómez Maite",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52102475",nombre:"Jordán Sofía",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52254784",nombre:"Giménez Candela Soledad",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52256517",nombre:"Rivero Pablo David",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"52260363",nombre:"Fisher Elián Isaías",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+  {dni:"527301939",nombre:"Martínez Frickel Rubén",curso:"1° F",turno:"TM",preceptor:"Francisco Pezzali"},
+
+  // 2°A TM — Cazanauve
+  {dni:"52256507",nombre:"Alarcón Lara",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52260386",nombre:"Britos Medrano Iara Belén",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52732201",nombre:"Cardozo Bianca Naomí",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52732202",nombre:"Cardozo Oriana Agostina",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52144453",nombre:"Castañeda Ian",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52260376",nombre:"Colombo Nazareno",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52260353",nombre:"Farías Josefina",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52260399",nombre:"Fleischmann Thiago Valentín",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"51422422",nombre:"Gaitán Wendy",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52856620",nombre:"Gallo Bautista Lionel",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53625879",nombre:"García Santino",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52256516",nombre:"Ibarra Santino",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52732227",nombre:"Ledesma Franco Tahiel",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53110772",nombre:"Mamani Zoe Narella",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52822384",nombre:"Martín Iara Naira",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52948096",nombre:"Martínez Ivo Benjamín",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52948055",nombre:"Moreira Valentino Alejandro",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52495621",nombre:"Orzuza Emily",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52820217",nombre:"Pereyra Ariadna Agustina",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52495620",nombre:"Pfeifer Lautaro",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"50148425",nombre:"Ríos Bruno Valentín",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53112425",nombre:"Ríos Pedro Santiago",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52732230",nombre:"Rodríguez García Stefano Tiziano",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"50474321",nombre:"Sánchez Ever",curso:"2° A",turno:"TM",preceptor:"Fernando Cazanauve"},
+
+  // 2°D TM — Cazanauve
+  {dni:"50474359",nombre:"Aguirre Iñaki",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53006148",nombre:"Aguirre Ana Belén",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53251376",nombre:"Britos Narella",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53251366",nombre:"Cajal Maia Nicole",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"49596777",nombre:"Godoy Ortega Aarón",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52822378",nombre:"Gómez Eitan",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52757595",nombre:"Leonetti Nahiara Luz",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52256527",nombre:"López Gerónimo Catriel",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52822353",nombre:"Martínez Valentino Andrés",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52495615",nombre:"Moreira Matías Exequiel",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"51118825",nombre:"Muñoz Lisandro",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"50748430",nombre:"Nievas Roldán Oriana",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52254775",nombre:"Remirez Alcorcel Juana Daceli",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52754384",nombre:"Ríos Violeta Margarita",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"53251397",nombre:"Ríos Wanda Nicole",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"51422426",nombre:"Rodríguez Stefano",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52258378",nombre:"Romero Giovanna María José",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52948065",nombre:"Romero Samira Selene",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"50748479",nombre:"Saluzzo Figueroa Amira",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"51118847",nombre:"Villar José",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+  {dni:"52947828",nombre:"Gallo Tobías Xavier",curso:"2° D",turno:"TM",preceptor:"Fernando Cazanauve"},
+
+  // 2°F TM — Erbes
+  {dni:"52260371",nombre:"Albornoz Leonardo",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52256519",nombre:"Alcorcel Emma",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52256543",nombre:"Alem Liz",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"53110794",nombre:"Basaldúa Panizzoli Mirko",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52732229",nombre:"Bejarano Luis Claudio",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52948052",nombre:"Castaño Juan David",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"53110761",nombre:"Deniz Sofía Victoria",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51118882",nombre:"Díaz Eric",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52256502",nombre:"Diederle Cáceres Ruth Abigail",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51021122",nombre:"Duarte Amir",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"53251395",nombre:"Maldonado Jazmín Gimena",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"53251370",nombre:"Martínez Rubio Tomás Alejo",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52056422",nombre:"Mora Mía Nicol",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50285347",nombre:"Morelis Mora Santiago",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52256532",nombre:"Osuna Natán",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52495610",nombre:"Riedel Lourdes Luz",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50285343",nombre:"Ríos Juan",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52732207",nombre:"Ríos Zahir Jeremías",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52822400",nombre:"Rivero Milagros Alexia",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51118863",nombre:"Rodríguez Ramiro",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50285320",nombre:"Rojas Martínez Gael",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51422403",nombre:"Sánchez Elías Manuel",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52102174",nombre:"Sosa Javier",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50748466",nombre:"Uccelli Abril",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51279652",nombre:"Velázquez Kianna Zoe",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51021174",nombre:"Vivas Bautista",curso:"2° F",turno:"TM",preceptor:"Ivana Erbes"},
+
+  // 3°A TM — Iribarren
+  {dni:"49225248",nombre:"Borgeat Aylin",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49898882",nombre:"Cáceres Vera Aimara Celeste",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49861227",nombre:"Correa Selena",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49566342",nombre:"Correa Alma",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"53006140",nombre:"Fernández Alma",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52254794",nombre:"Fernández Julieta",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51020198",nombre:"López Campana María Isabel",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50474393",nombre:"Martínez Borgeat Alma",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49566391",nombre:"Micle Vallaro Renata",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52254788",nombre:"Parrone Iker",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50748453",nombre:"Ramos Luto Mía Yasmín",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50384478",nombre:"Rey Agustina",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50285389",nombre:"Román Zamira",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50474344",nombre:"Rubio Angelina",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52256503",nombre:"Rubio Ian",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50683529",nombre:"Segovia Bianca",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51020780",nombre:"Sein Milena",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50748471",nombre:"Torres Martínez Wanda",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50474368",nombre:"Torres Diego Valentín",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50474369",nombre:"Zapata María Eugenia",curso:"3° A",turno:"TM",preceptor:"Fernando Iribarren"},
+
+  // 3°D TM — Iribarren
+  {dni:"50474350",nombre:"Acosta Sofía",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52254778",nombre:"Albornoz Naiara",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52144448",nombre:"Bejarano Luana",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52260333",nombre:"Bejarano Valentina",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49713954",nombre:"Britos Solange",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51021121",nombre:"Chaparro Tiara",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52260332",nombre:"Correa Zárate Loana",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50691656",nombre:"Enrique Micaela",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51021249",nombre:"Espinosa Thiago",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"62363486",nombre:"Franco Rodrigo",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51021102",nombre:"García Teo",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52102465",nombre:"García Valentino Gael",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52254785",nombre:"Gómez Santino",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"49566385",nombre:"Holmann Tiago",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"50748426",nombre:"Perasso Aarón",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52256512",nombre:"Reinoso Tiana",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52102479",nombre:"Ruiz Díaz Victoria",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"51021160",nombre:"Sosa Milena",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+  {dni:"52144460",nombre:"Toniutti Narella",curso:"3° D",turno:"TM",preceptor:"Fernando Iribarren"},
+
+  // 3°F TM — Erbes
+  {dni:"51422411",nombre:"Acosta Alma",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"48202028",nombre:"Britos Medrano Ariana",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52254780",nombre:"Clapiel Müller Mía",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"49713919",nombre:"Domínguez Ailén Ayelén",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"49969056",nombre:"Espejo Biurrum Emilias",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50748470",nombre:"Fernández Dilan Valentín",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50748429",nombre:"Giménez Loana",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51118858",nombre:"Giménez Rojas Emily",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"49225223",nombre:"Gregorutti Antonella",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51504622",nombre:"La Roza Matías",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"52254793",nombre:"Maldonado Naomí",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51118803",nombre:"Palma Ceballos Tiziana",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51422417",nombre:"Romero Victoria Ximena",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51422429",nombre:"Schaab Adur Renata",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"51021117",nombre:"Scheleger Dylan",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"49566320",nombre:"Soto Agustín",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"50285335",nombre:"Villar María Itatí",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+  {dni:"49861224",nombre:"Zapata Eric",curso:"3° F",turno:"TM",preceptor:"Ivana Erbes"},
+
+  // 4° TM — Escolar
+  {dni:"51021157",nombre:"Alva Damaris",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"48824102",nombre:"Bejarano Tiara Mariana Isabella",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"47980693",nombre:"Blasón Nahir Martín Tahiel",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"48336168",nombre:"Coronel Valentina",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748474",nombre:"Fernández Giménez Brenda",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49225265",nombre:"Pereyra Nicolás Agustín",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50824260",nombre:"Pont Máximo",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"47522013",nombre:"Reynoso Gianluca Nazareno",curso:"4° Prog. y Robótica",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49440723",nombre:"Albornoz Agustina Mariel",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49861217",nombre:"Basaldúa Panizzoli Theo",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748432",nombre:"Bejarano Jeremías Exequiel",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50285369",nombre:"Cabral Mía Antonella",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49440786",nombre:"Correa Xiomara Selene",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50689596",nombre:"Encina Camila Daiana",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474336",nombre:"Gómez Jade Karin",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49789021",nombre:"López Trossero Lucía",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"51021136",nombre:"Reinoso Maia",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474343",nombre:"Rubio Sofía Belén",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474304",nombre:"Sánchez Jade Nahir",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49225231",nombre:"Sánchez Yamil",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50126106",nombre:"Rubio Yazmín Anahí",curso:"4° Cs. Naturales",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474390",nombre:"Cajal Mía",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49713918",nombre:"Godoy Alma",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474381",nombre:"Romero Zahira Evelyn",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"48336111",nombre:"Salinas Lautaro Juan Gabriel",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50285378",nombre:"Sánchez Fitterman Mía Selene",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"48202048",nombre:"Tula Díaz Melanie Agustina",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49225289",nombre:"Vera Gonzalo Joaquín",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"47980610",nombre:"Vergara Nahuel Esteban",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"48824120",nombre:"Zúñiga Melani",curso:"4° Econ. y Adm.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474352",nombre:"Alva Bruno",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474318",nombre:"Aresta Luisana Aylín",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474324",nombre:"Cáceres Alan Aureliano",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49566392",nombre:"Fiterman Matías Daniel",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49713929",nombre:"Gallo Jorgelina",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748486",nombre:"Godoy Zaragoza Emma Martina",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49018257",nombre:"Godoy Santiago Nicolás",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49440724",nombre:"González Sofía",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748414",nombre:"Hernández Thiago Valentín",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49713984",nombre:"Leiva Iara Yazmín",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748402",nombre:"Martínez Rubio Ludmila",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50749431",nombre:"Martínez Alfonsina",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50748460",nombre:"Müller Muñoz Lara",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49225221",nombre:"Núñez Tatiana Priscila",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50126134",nombre:"Pastori Ludmila Marlén",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"49566357",nombre:"Soria Cristóbal Matías",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+  {dni:"50474328",nombre:"Zapata Abril Agustina",curso:"4° Cs. Soc. y Hum.",turno:"TM",preceptor:"María Ángeles Escolar"},
+
+  // 5° TM — Conde
+  {dni:"48824122",nombre:"Aguirre Yamile",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"50285388",nombre:"Castañeda Milagros Luján",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49440768",nombre:"Cuevas Brianna",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"50474311",nombre:"Muñoz Morena Yasmín",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566324",nombre:"Nievas Avril Ada Luz",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49179204",nombre:"Ortega Samira Nicole",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"48824190",nombre:"Pastori Juan Jorge",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49225290",nombre:"Reinoso Celeste Magali",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49225300",nombre:"Rivero Mateo David",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49713958",nombre:"Rivero Josué David",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49020835",nombre:"Salzman Fernando Ezequiel",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"48824189",nombre:"Soto Alexis Sebastián",curso:"5° Cs. Soc. y Hum.",turno:"TM",preceptor:"David Conde"},
+  {dni:"48202029",nombre:"Britos Medrano Natacha Micaela",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49860038",nombre:"Clapiel Müller Morena Jazmín",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50126152",nombre:"Duarte Brisa Mayra",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566348",nombre:"García Martina Alexia",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"48551104",nombre:"Méndez Romina Sofía",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49713995",nombre:"Muñoz Juliana Magali",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566364",nombre:"Reinoso Mía Luján",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50312245",nombre:"Ríos Elena Magali",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50017321",nombre:"Ríos Mía Catalina",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50017320",nombre:"Ríos Nemeci Victoria",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566355",nombre:"Rubio Luisana Geraldine",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49861221",nombre:"Sosa Melany Xiomara",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49713981",nombre:"Suárez Tamara Yasmín",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50182125",nombre:"Taborda Nahuel",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49861208",nombre:"Tiraboschi Román Amira Jael",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"50126131",nombre:"Uhrig Candela",curso:"5° Cs. Naturales",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566346",nombre:"Aguirre Mirko",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48336117",nombre:"Albornoz Dalila",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"47707446",nombre:"Chaparro Florencia Adriana",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566374",nombre:"Correa Anahí Lucía",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48824192",nombre:"García Ailén Agustina",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48336114",nombre:"García Tobías Exequiel",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"49861222",nombre:"Ledesma Axel Lionel",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48551147",nombre:"Muñoz Romero Valentín",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48824652",nombre:"Rey Jimena María José",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"50285314",nombre:"Sánchez Tiara Lilen",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"48622018",nombre:"Schmidt Sergio Ángel",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"49566380",nombre:"Villalba Julián Emanuel",curso:"5° Prog. y Robótica",turno:"TM",preceptor:"David Conde"},
+  {dni:"49825596",nombre:"Bodusso Emerson Bautista",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49713951",nombre:"Díaz Tomás Valentín",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"49440791",nombre:"Fernández Edwin Jonás",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"50126147",nombre:"Loza Maggie Samira",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"50126195",nombre:"Moreira María Fernanda",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"48202024",nombre:"Noriega Alexis Ezequiel",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"48202094",nombre:"Poggi Leonel Isaías",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+  {dni:"47980658",nombre:"Riquelme Daira Nicol",curso:"5° Econ. y Adm.",turno:"TM",preceptor:"David Conde"},
+
+  // 6° TM — Temporetti
+  {dni:"48202030",nombre:"Arismendi Jeremías",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440781",nombre:"Alcorcel Jimena",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225268",nombre:"Cabral Ludmila Ayelén",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225203",nombre:"Cáceres Dylan Ángel Thomas",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225281",nombre:"Castillo Jazmín",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225282",nombre:"Castillo Marcos",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48336144",nombre:"Chaparro Juliana Estefanía",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440737",nombre:"Fernández Celeste Valentina",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49566304",nombre:"Gallo Aranda Milena Denise",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225222",nombre:"García Nayla Denise",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225260",nombre:"Gómez María Sol",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225243",nombre:"Martín Byron Ismael",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225262",nombre:"Molina Martínez Micaela",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49018281",nombre:"Muñoz Candela Marlene",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440706",nombre:"Pereyra Caterina Zamira",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440707",nombre:"Pereyra Naomi Leonela",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48551111",nombre:"Reinoso Delfina",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48551178",nombre:"Romero Ximena Iara Camila",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49019262",nombre:"Secundini Martina",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225229",nombre:"Stricker Tiara Anahí",curso:"6° Cs. Soc. y Hum.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440792",nombre:"Ábrego Rocío Magali",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49018253",nombre:"Britos Chaparro María Valentina",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225298",nombre:"Cuello Zaragoza Nerina Marlene",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49511854",nombre:"González Jessica Alejandra",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49566318",nombre:"Mascaró Wanda Jazmín",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440766",nombre:"Muñoz Victoria",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48202074",nombre:"Riquelme Ingrid",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48824163",nombre:"Rubio Candela Cristel",curso:"6° Cs. Naturales",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49566322",nombre:"Arias Buschiazzo Ian Agustín",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"47522028",nombre:"Jordan Viola Ismael",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49121056",nombre:"Martínez Asborno Brisa Kiara",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48336128",nombre:"Ortega Uriel",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440783",nombre:"Pastori Ernesto Joaquín",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225244",nombre:"Sosa Cielo Morena Micol",curso:"6° Prog. y Robótica",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48336156",nombre:"Díaz Morena Nahir",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"47707419",nombre:"Moreira Natalia Mailén",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49440740",nombre:"Muñoz Aimara Guadalupe",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"49225211",nombre:"Perasso Luján Alelí",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"48551127",nombre:"Ríos Dalma",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"46467754",nombre:"Ruiz Moreno Alan Joaquín",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"47522044",nombre:"Moreira Joel Alexander",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"47814466",nombre:"Ríos Julieta",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+  {dni:"47522097",nombre:"Román Pamela",curso:"6° Econ. y Adm.",turno:"TM",preceptor:"Milagros Temporetti"},
+
+
+  // ===== TURNO NOCHE =====
+
+  // 1° Cs. Soc. y Hum. TN — Ridissi
+  {dni:"47327837",nombre:"Pujato Bautista",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"45554371",nombre:"Muñoz Agustina Micaela",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"46276275",nombre:"Fernández Lucas Damián",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"39027799",nombre:"Leiva Camila Ivón",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"49018252",nombre:"García Elías Joaquín",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"25287759",nombre:"Ibarrola Viviana Valeria",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"42851582",nombre:"Giles Nadia",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48551162",nombre:"Colombo Morena Noemí",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"43936174",nombre:"Zapata Ingrid",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"45755458",nombre:"Borgeat Nicolás",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"45032061",nombre:"Vega Jeremías",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"46976117",nombre:"Rey Milagros",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"45946751",nombre:"Schollman Martín",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48550151",nombre:"Valenzuela Alejo",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48824174",nombre:"Correa Dylan",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"47980663",nombre:"Ibarra Guillermo",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"46976583",nombre:"Fernández Guillermo",curso:"1° Cs. Soc. y Hum.",turno:"TN",preceptor:"Andrea Ridissi"},
+
+  // 2° Cs. Soc. y Hum. TN — González
+  {dni:"46927759",nombre:"Aguirre Laureano F.",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"44780687",nombre:"Garcia Lautaro N.",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"46317520",nombre:"Garcia Ulises Rafael",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522063",nombre:"Vivas Alejo Joaquín",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48202011",nombre:"Aresta Ríos Mailén",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47245035",nombre:"Campo Sofía",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"39027774",nombre:"Martínez Damaris",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522061",nombre:"Micle Naomi",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522110",nombre:"Ríos Ma. Eugenia",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48202060",nombre:"Alarcón Delfina",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48202005",nombre:"Alcorcel Ludmila",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"44152921",nombre:"Rodríguez Antonella",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48551112",nombre:"Ramos Luto Alexander Néstor",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"45946056",nombre:"Ríos Camila",curso:"2° Cs. Soc. y Hum.",turno:"TN",preceptor:"Ivana González"},
+
+  // 3° Cs. Soc. y Hum. TN — Alonso
+  {dni:"45336265",nombre:"Albornoz Iara Milagros",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"48202003",nombre:"Alem Carlos Ariel",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47245021",nombre:"Arredondo Alexis Ariel",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"32580956",nombre:"Casatti Carina Vanesa",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"18006330",nombre:"Coppini Carlos Fabián",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47244651",nombre:"D'angelo Candelaria Yazmín",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"39258977",nombre:"Díaz Alicia Beatriz",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47980646",nombre:"Garcia Tomás Maximiliano",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"46780625",nombre:"Gastiasoro Fátima Natalí",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"46467742",nombre:"Milani Celeste Gabriela",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"46927746",nombre:"Nicolin Axel Leonel",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47927795",nombre:"Nicolin Edgar Uriel",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"46675271",nombre:"Piantanida Jonas Octavio",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47522022",nombre:"Rodriguez Damaris Angelina",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"45336305",nombre:"Vera Rodríguez Alexis",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"45336354",nombre:"López Jennifer",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"48824166",nombre:"Sánchez Biskupski Xiomara",curso:"3° Cs. Soc. y Hum.",turno:"TN",preceptor:"Esteban Alonso"},
+
+  // 1° Cs. Nat. TN — Ridissi
+  {dni:"44981125",nombre:"Efraín Melisa Noemí",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"45336377",nombre:"Román Brisa",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"38544243",nombre:"Hofstetter Adrián Francisco",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"47245072",nombre:"Díaz Ramón Agustín",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48336179",nombre:"Maldonado Morena Selene",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"31976181",nombre:"Corbalán María Alejandra",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"18304441",nombre:"Albornoz Liliana",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"32218998",nombre:"Reynoso Soledad",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"38544136",nombre:"Cuello Nancy",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"44887159",nombre:"Saucedo Romina",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"39121222",nombre:"Leonetti Gina",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48551165",nombre:"Gonzalez Nahuel",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48551168",nombre:"Micle José Sebastián",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"23207592",nombre:"Torres Isabel",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"47980649",nombre:"Alarcón Guillermo",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+  {dni:"48336127",nombre:"Monzón Aldana",curso:"1° Cs. Nat.",turno:"TN",preceptor:"Andrea Ridissi"},
+
+  // 2° Cs. Nat. TN — González
+  {dni:"46927780",nombre:"Abrego Giovanni Tobías Y.",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522109",nombre:"Ibarra Melissa Julieta",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522148",nombre:"Martínez Re Thiago Daniel",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"46780628",nombre:"Belluzzo Tanya Belén",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48053931",nombre:"Chaparro Alex Joel",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"46976583",nombre:"Fernandez Guillermo Leonel",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47245090",nombre:"Martins Dos Santos Marcos D.",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522077",nombre:"Ríos Eugenia Milena A.",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47707433",nombre:"Alcorcel Naara Graciana",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"26343017",nombre:"Cardoso Adela",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"35777935",nombre:"Corbalán Daniela",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"48202006",nombre:"Corbalán Ivana",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"44555956",nombre:"Gómez Lucas",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"47522081",nombre:"Pereira Rafael",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"45591776",nombre:"Rodríguez Camila",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"45522016",nombre:"Sánchez Cuello Ángeles",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"46927771",nombre:"Sánchez Joel",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+  {dni:"41282827",nombre:"Moyano Natasha",curso:"2° Cs. Nat.",turno:"TN",preceptor:"Ivana González"},
+
+  // 3° Cs. Nat. TN — Alonso
+  {dni:"48336140",nombre:"Abrego Mauro Exequiel",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47245038",nombre:"Acosta Naomi Alicia",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"48336108",nombre:"Burne Gabriel Ignacio",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"44781822",nombre:"Duarte Milagros Sofía",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"44843574",nombre:"Gomez Conrado Gabriel",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"28527648",nombre:"Martinez Rosalía Judith",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"28978625",nombre:"Miño Julieta Graciela",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"46317532",nombre:"Muñoz Brian Agustín",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"24606719",nombre:"Rau Diego Miguel",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"36752694",nombre:"Ricle Elena Nair",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47410206",nombre:"Soria Naomi Ana Luz",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"47707446",nombre:"Chaparro Florencia",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"45336303",nombre:"Ortega Carmen Milagros",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"45754939",nombre:"Bejarano Brisa Luján",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+  {dni:"48202029",nombre:"Britos Medrano Micaela",curso:"3° Cs. Nat.",turno:"TN",preceptor:"Esteban Alonso"},
+
+  // ===== TURNO TARDE =====
+
+  // 1°G TT — Secundini
+  {dni:"52495635",nombre:"Borgeat Lara",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52822367",nombre:"Bravo Joaquín Alberto",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"53737932",nombre:"Correa Alma Argentina",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"20533593950",nombre:"Galarza Herrera Lautaro Isaías",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52732203",nombre:"Giménez Keila",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52732204",nombre:"Giménez Zoe",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"53110780",nombre:"Gómez Santino",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"54005275",nombre:"González Justina Abigail",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"51323956",nombre:"Herrera Erik Ailton",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52821600",nombre:"Ifraín Abel",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"53006107",nombre:"Krapp Amarillo Micaela",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52260348",nombre:"Martínez Aarón",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52732249",nombre:"Ramos Valentina",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52496905",nombre:"Schmidt Facundo Ezequiel",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"52822352",nombre:"Taborda Jana Guadalupe",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"53811626",nombre:"Tortul Mía",curso:"1° G",turno:"TT",preceptor:"Santiago Secundini"},
+
+  // 1°D TT — Secundini
+  {dni:"49166358",nombre:"Martínez Gloria",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49565474",nombre:"Ríos Ángel",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49566381",nombre:"Gómez Iván",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49861210",nombre:"Alem Alejo",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50285359",nombre:"Muñoz Lionel",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50285373",nombre:"Favotti Brando",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50434789",nombre:"Parizzia Valentino",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50474394",nombre:"Moreira Thiago",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50542565",nombre:"Chaparro Dylan",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50748452",nombre:"Cáceres del Valle Jesuan",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50748458",nombre:"Morales Gastón",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50748461",nombre:"Muñoz Eliezer Agustín",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"51020092",nombre:"Villalba Tobías",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"51021106",nombre:"Rodríguez Tobías",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"51021134",nombre:"Caraballo Uma",curso:"1° D",turno:"TT",preceptor:"Santiago Secundini"},
+
+  // 2°E TT — Ilari
+  {dni:"50126139",nombre:"Asamuya Joaquín",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49713987",nombre:"Borgeat Leandro",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52732226",nombre:"Brumatti Dulce",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51422428",nombre:"Conde Eugenia",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50474391",nombre:"Cuello Fernández Katerine",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51422421",nombre:"Fiterman Martina",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50474372",nombre:"Fiterman Thiago",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126163",nombre:"Gómez Nahiara",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50285400",nombre:"González Mía",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51422402",nombre:"González Thiago",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52256515",nombre:"Ibarra Nabila",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50943269",nombre:"Ibarra Samira",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49710450",nombre:"Martínez Mateo",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126177",nombre:"Medina Kevin",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52495637",nombre:"Micle Maitena",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50927944",nombre:"Morales Ulises",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51021132",nombre:"Muñoz Moreira Camelia",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49713903",nombre:"Olivero Jazmín",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126141",nombre:"Román Marcos",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50748462",nombre:"Rubio Maximiliano",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49566389",nombre:"Soria Javier",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49713949",nombre:"Soria Julia",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126155",nombre:"Torres Ana Luz",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52732205",nombre:"Tortul David",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52732241",nombre:"Zárate Andino Milagros",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52056860",nombre:"Zunini Valentino",curso:"2° E",turno:"TT",preceptor:"Rolando Ilari"},
+
+  // 2°C TT — Ilari
+  {dni:"50126184",nombre:"Albornoz Joaquín",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51118856",nombre:"Alem Tamary",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"53110773",nombre:"Aresta Antonella",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126178",nombre:"Cantero Yair",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52260307",nombre:"Conde Leonardo",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"53006125",nombre:"Deniz Derek",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52144449",nombre:"Domínguez Thiago",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50285354",nombre:"Duré Iker Tobías",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52260322",nombre:"Furlan Bezzoni Rodrigo",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51118837",nombre:"García Dylan",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126128",nombre:"Gómez Valentino",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50474305",nombre:"González Pujato Zaira",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50748440",nombre:"Migueles Guadalupe",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51021173",nombre:"Moreira Tiara",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52732206",nombre:"Moreno Gómez Bruno",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"51021107",nombre:"Muñoz Sebastián",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52260328",nombre:"Parizzia Genaro",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49566330",nombre:"Riquelme Nicolás",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50741422",nombre:"Rougge Ana Luz",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52610755",nombre:"Sánchez Fernando V.",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52056439",nombre:"Soria Alejandro",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"52144191",nombre:"Soria Lucas Ángel",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"53110771",nombre:"Viola Naomi",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50589097",nombre:"Wasinger Mirko",curso:"2° C",turno:"TT",preceptor:"Rolando Ilari"},
+
+  // 3°E TT — Taborda Mariana
+  {dni:"52056440",nombre:"Bustamante Carla",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50248453",nombre:"Charra Vieyra Dylan",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50285381",nombre:"Charra Vieyra Ian",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440800",nombre:"Correa Albornoz Tomás",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49566377",nombre:"Cuevas Arias Thiago",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440757",nombre:"Díaz Medrano",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50285340",nombre:"Gaitán Amilcar",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49039405",nombre:"Genovese Luna Milagros",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"47980697",nombre:"Giles Iara",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50474337",nombre:"González Uma Nahiara",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49018271",nombre:"Leiva Lucas Adrián",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49861250",nombre:"Lencina Julieta",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50126103",nombre:"Martínez Keila",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48439584",nombre:"Martiquet Uriel",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48336127",nombre:"Monzón Aldana",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"52407501",nombre:"Muñoz Alexander",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49713952",nombre:"Pereyra Víctor Emiliano",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50474367",nombre:"Ramos Yoel Nicolás",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"18824198",nombre:"Soria Juan Cruz",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50382970",nombre:"Torres Consundino Jonatan",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49296387",nombre:"Torres Consundino Thiago",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440742",nombre:"Zapata Renzo",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50474338",nombre:"Zapata Tomás",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50698470",nombre:"Zárate Santino",curso:"3° E",turno:"TT",preceptor:"Taborda Mariana"},
+
+  // 3°C TT — Taborda Mariana
+  {dni:"48824136",nombre:"Arrúa Delfina",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49296498",nombre:"Asamuya Julieta",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49225285",nombre:"Bejarano Taiel",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50126130",nombre:"Coronel Mía Tiziana",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50474320",nombre:"Correa Uma Taiana Madeleine",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50748472",nombre:"Cuevas Bautista",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"52256514",nombre:"Denis Mía",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49018256",nombre:"Drescher Gonzalo",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48202082",nombre:"Fogel Juana",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50126137",nombre:"Furlan Bezzoni Lautaro",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50474363",nombre:"Ibarra Virginia Esperanza",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49566335",nombre:"López Guadalupe María Luz",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49018264",nombre:"Martínez Ignacio",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"51118857",nombre:"Montanaris Megan",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49441272",nombre:"Moreira Ríos Misael Gabriel",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50748431",nombre:"Nogueira Violeta",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49225246",nombre:"Ramírez Bautista",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"51021193",nombre:"Ríos Xiomara",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50748498",nombre:"Stieben Catherine Nicole",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440754",nombre:"Torres Martínez Wilson",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"51021186",nombre:"Tortul Thiago Daniel",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"51021175",nombre:"Troncoso Selena",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49018277",nombre:"Uhrig Martín",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"50748491",nombre:"Vera Renata",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"51118889",nombre:"Vivas Abril",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49567407",nombre:"Wertz Larrosa Ariana",curso:"3° C",turno:"TT",preceptor:"Taborda Mariana"},
+
+  // 4° TT — Secundini
+  {dni:"49440756",nombre:"Riquelme Tiara Angelina",curso:"4° Econ. y Adm.",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48551179",nombre:"Soria Cielo Angelina",curso:"4° Econ. y Adm.",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49225266",nombre:"Cáceres Tiara",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49440796",nombre:"Dreher Génesis",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50474392",nombre:"Espinosa Schmunk Morena Jazmín",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48624742",nombre:"Fernández Agüera Thiago",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48551190",nombre:"Fernández Lionel",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49566372",nombre:"Fogel David",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48336165",nombre:"Ibarra Ailén",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49225264",nombre:"Jordán Candela",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49441344",nombre:"Lara Steimbrecher",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50474326",nombre:"Méndez Mía",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"49713930",nombre:"Ordóñez Oscar Luis",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50748484",nombre:"Pittavino Solange Loreley",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48202053",nombre:"Ríos Antonella",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"47980683",nombre:"Rubio Lara",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"50126129",nombre:"Zapata Dilan",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+  {dni:"48202070",nombre:"Zapata Lucila",curso:"4° Ed. Física",turno:"TT",preceptor:"Santiago Secundini"},
+
+  // 5° TT — Ilari
+  {dni:"48551133",nombre:"Alzugaray Camila",curso:"5° Econ. y Adm.",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"48336162",nombre:"Rubio Eric",curso:"5° Econ. y Adm.",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"48824101",nombre:"Rodríguez Castaño Lautaro",curso:"5° Econ. y Adm.",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"48824699",nombre:"Andino Alexis",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"48336133",nombre:"Basualdo Xiomara",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"50126170",nombre:"Conde Priscila",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49713931",nombre:"Figueroa Ámbar",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49225235",nombre:"Giménez Albano",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"48401294",nombre:"Leguiza Cielo",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49713943",nombre:"Ríos Luz Eva María",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+  {dni:"49440777",nombre:"Taborda Alma",curso:"5° Ed. Física",turno:"TT",preceptor:"Rolando Ilari"},
+
+  // 6° TT — Taborda Mariana
+  {dni:"47522147",nombre:"Gómez Pablo",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49556301",nombre:"Höllmann Corbalán Ariadna",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48551194",nombre:"Moreira Brenda",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48766727",nombre:"Muñoz Pilar",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440716",nombre:"Pittavino Lara",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48733901",nombre:"Pont Francisco",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48551132",nombre:"Rodríguez Diamela",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440731",nombre:"Ruiz Kevin",curso:"6° Econ. y Adm.",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48824133",nombre:"Aresta Alan",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48421351",nombre:"Aymo Zoe",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"49440733",nombre:"Bruselario Bianca",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48153701",nombre:"Fernández Agüero Ingrid",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"48336187",nombre:"Ifraín María Milagros",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+  {dni:"47980673",nombre:"Zapata Gonzalo",curso:"6° Ed. Física",turno:"TT",preceptor:"Taborda Mariana"},
+];
+
+// Extraer DNI de 8 dígitos desde un string (puede ser CUIL o DNI)
+// CUIL formato: XX-XXXXXXXX-X (prefijo 2 + dni 8 + verificador 1 = 11 dígitos)
+// Si tiene 11 dígitos: tomar posiciones 2..9 (los 8 del medio)
+// Si tiene 9-10 dígitos: podría ser DNI largo, usar tal cual
+// Si tiene 7-8 dígitos: usar tal cual
+function normalizarDNI(raw) {
+  const digits = raw.replace(/\D/g,'');
+  if (digits.length === 11) {
+    // Es un CUIL estándar: extraer los 8 dígitos del medio
+    return digits.slice(2, 10);
+  }
+  if (digits.length === 12) {
+    // CUIL con prefijo de 2 dígitos y DNI de 9 dígitos (raro), o CUIL largo
+    // Intentar extraer 8 dígitos del medio igual
+    return digits.slice(2, 10);
+  }
+  // Para cualquier otro caso, devolver tal cual (DNI directo)
+  return digits;
+}
+
+const indice = {};
+estudiantes.forEach(e => {
+  const key = normalizarDNI(e.dni);
+  if (!indice[key]) indice[key] = [];
+  indice[key].push(e);
+});
+
+function buscar() {
+  const raw = document.getElementById('dniInput').value.trim();
+  const key = normalizarDNI(raw);
+  const res = document.getElementById('resultado');
+
+  if (!key || key.length < 7) {
+    res.className = 'resultado visible';
+    res.innerHTML = `
+      <div class="card-notfound">
+        <div class="card-header-notfound">
+          <div class="alert-icon">⚠️</div>
+          <div>
+            <h3>DNI incompleto</h3>
+            <p>Por favor ingresá al menos 7 dígitos del DNI para realizar la búsqueda.</p>
+          </div>
+        </div>
+      </div>`;
+    return;
+  }
+
+  const encontrados = indice[key];
+
+  if (encontrados && encontrados.length > 0) {
+    const tarjetas = encontrados.map(e => `
+      <div class="card-encontrado" style="${encontrados.length > 1 ? 'margin-bottom:16px' : ''}">
+        <div class="card-header-found">
+          <div class="check-icon">✓</div>
+          <div>
+            <h3>Estudiante encontrado/a</h3>
+            <div class="card-nombre">${e.nombre}</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="dato-bloque">
+            <span class="dato-label">Curso</span>
+            <span class="dato-valor">${e.curso}</span>
+          </div>
+          <div class="dato-bloque">
+            <span class="dato-label">Turno</span>
+            <span class="dato-valor">
+              <span class="turno-badge turno-${e.turno}">${e.turno === 'TM' ? '☀️ Mañana' : e.turno === 'TT' ? '🌙 Tarde' : '🌃 Noche'}</span>
+            </span>
+          </div>
+          <div class="dato-bloque">
+            <span class="dato-label">Preceptor/a</span>
+            <span class="dato-valor">${e.preceptor}</span>
+          </div>
+          <div class="dato-bloque">
+            <span class="dato-label">Ciclo Lectivo</span>
+            <span class="dato-valor">2026</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    res.className = 'resultado visible';
+    res.innerHTML = tarjetas;
+  } else {
+    res.className = 'resultado visible';
+    res.innerHTML = `
+      <div class="card-notfound">
+        <div class="card-header-notfound">
+          <div class="alert-icon">❗</div>
+          <div>
+            <h3>DNI no encontrado en los listados</h3>
+            <p>El DNI <strong>${raw}</strong> no figura en el padrón provisorio 2026.<br>
+            Por favor, <strong>acercate a la institución para conocer tu situación particular</strong>.</p>
+          </div>
+        </div>
+        <div class="card-notfound-body">
+          <p style="font-size:13px;color:#78350F;margin-bottom:12px;font-weight:500;">HORARIOS DE ATENCIÓN</p>
+          <div class="horarios" style="grid-template-columns:1fr 1fr 1fr;">
+            <div class="horario-bloque">
+              <strong>Turno Mañana</strong>
+              <span>Lunes a viernes<br>7:45 – 13:00 hs</span>
+            </div>
+            <div class="horario-bloque">
+              <strong>Turno Tarde</strong>
+              <span>Lunes a viernes<br>13:00 – 19:00 hs</span>
+            </div>
+            <div class="horario-bloque">
+              <strong>Turno Noche</strong>
+              <span>Lunes a viernes<br>19:00 – 22:30 hs</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+}
+
+function limpiar() {
+  document.getElementById('dniInput').value = '';
+  document.getElementById('resultado').className = 'resultado';
+  document.getElementById('dniInput').focus();
+}
+
+document.getElementById('dniInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') buscar();
+});
+</script>
+</body>
+</html>
